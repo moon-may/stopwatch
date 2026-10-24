@@ -1,18 +1,16 @@
 import sys
 from PySide6.QtWidgets import *
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, Qt
 
-class TimerWindow(QMainWindow):
+class TimerWindow(QDialog):
     def __init__(self):
         super().__init__()
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
 
         self.setGeometry(0, 0, 300, 100)
-        self.setWindowTitle('Таймер')
 
-        central = QWidget()
-        self.setCentralWidget(central)
-
-        view = QVBoxLayout(central)
+        view = QVBoxLayout(self)
+        
 
         self.timer_label = QLabel('00:00:00')
         view.addWidget(self.timer_label)
