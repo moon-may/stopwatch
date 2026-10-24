@@ -70,6 +70,10 @@ class TimerWindow(QMainWindow):
 
 
 app = QApplication(sys.argv)
+
+with open("styles.qss", "r", encoding="utf-8") as f:
+    app.setStyleSheet(f.read())
+
 main_window = TimerWindow()
 main_window.show()
 app.exec()
